@@ -1,0 +1,26 @@
+config:
+  target: 'http://localhost:3000/api/v1'
+  phases:
+    - name: "Testing api"
+      duration: 60
+      arrivalRate: 20
+  defaults:
+    headers:
+      blackthorn-access-token: 'ano5aGg4eGdpNWZyVHd9YlZzM0BbVFhTWE1U'
+      content-type: 'application/x-www-form-urlencoded'
+  payload:
+    path: "payload.csv"
+    fields:
+      - "cart_id"
+      - "item_id"
+      - "quantity"
+    order: sequence
+    skipHeader: true
+scenarios:
+  - name: "Add items to cart"
+    flow:
+      - post:
+          url: "/cart/{{ cart_id }}/item"
+          form:
+            item_id: "{{ item_id }}"
+            quantity: "{{ quantity }}"

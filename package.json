@@ -1,0 +1,43 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Blackthorn Dev Test",
+  "scripts": {
+    "build": "tsc",
+    "dev": " nodemon -e ts -w ./src -x ts-node ./src/server.ts",
+    "start": "node ./dist/server.js",
+    "prod": "npm run build && npm run start",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "migrate": "ts-node src/migrations/migrations.ts up",
+    "apikey": "ts-node src/utils/tokenGenerator.ts",
+    "benchmark": "./node_modules/artillery/bin/artillery run src/tests/test.yml"
+  },
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "8.11.3"
+  },
+  "dependencies": {
+    "@types/dotenv": "^4.0.3",
+    "@types/express": "^4.16.0",
+    "@types/mysql": "^2.15.6",
+    "artillery": "^1.6.0-28",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "faker": "^4.1.0",
+    "mysql-migrations": "^1.0.6",
+    "npm": "^6.3.0",
+    "payload-validator": "^1.0.4",
+    "promise-mysql": "^3.3.1",
+    "typescript": "^3.0.1",
+    "winston": "^2.4.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.4",
+    "nodemon": "^1.18.3",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0"
+  }
+}
