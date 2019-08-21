@@ -47,3 +47,13 @@ You can test the API with this api key
 ```
 ano5aGg4eGdpNWZyVHd9YlZzM0BbVFhTWE1U
 ```
+
+The benchmarking test can be executed with the following command:
+
+
+```
+$ npm run benchmark
+```
+
+The Heroku free MySQL services are limited (JawsDB and ClearDB), therefore the tests were not as desired. 
+The local environment showed a much better performance.
